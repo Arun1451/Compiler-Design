@@ -1,0 +1,51 @@
+%{
+#include<stdio.h>
+int ln=0;
+%}
+%%
+.* {ln++;
+fprintf(yyout,"\n%d:%s",ln,yytext);}
+%%
+int yywrap(){}
+int main()
+{
+yyin=fopen("simple.txt","r");
+yyout=fopen("out.txt","w");
+yylex();
+return 0;
+}
+
+
+
+
+
+
+Output Processs:---
+
+C:\Users\arunk>set path=C:\Program Files (x86)\GnuWin32\bin
+
+C:\Users\arunk>flex lines.l.txt
+
+C:\Users\arunk>set path=C:\MinGW\bin
+
+C:\Users\arunk>gcc lex.yy.c
+
+C:\Users\arunk>a.exe
+%{
+#include<stdio.h>
+int ln=0;
+%}
+%%
+.* {ln++;
+fprintf(yyout,"\n%d:%s",ln,yytext);}
+%%
+int yywrap(){}
+int main()
+{
+yyin=fopen("simple.txt","r");
+yyout=fopen("out.txt","w");
+yylex();
+return 0;
+}
+^C
+C:\Users\arunk>
